@@ -1,0 +1,66 @@
+{
+  "lastUpdated": "2026-04-13",
+  "description": "Mapping student interests to potential college majors and careers",
+  "categories": [
+    {
+      "interest": "Math & Numbers",
+      "majors": ["Mathematics", "Statistics", "Actuarial Science", "Economics", "Finance", "Data Science"],
+      "careers": ["Data Scientist", "Financial Analyst", "Actuary", "Accountant", "Economist", "Quantitative Analyst"]
+    },
+    {
+      "interest": "Science & Discovery",
+      "majors": ["Biology", "Chemistry", "Physics", "Environmental Science", "Neuroscience", "Astronomy"],
+      "careers": ["Research Scientist", "Doctor", "Pharmacist", "Environmental Consultant", "Lab Technician", "Professor"]
+    },
+    {
+      "interest": "Technology & Computers",
+      "majors": ["Computer Science", "Software Engineering", "Information Technology", "Cybersecurity", "AI/Machine Learning"],
+      "careers": ["Software Developer", "Cybersecurity Analyst", "AI Engineer", "Web Developer", "IT Manager", "Game Developer"]
+    },
+    {
+      "interest": "Writing & Communication",
+      "majors": ["English", "Journalism", "Communications", "Creative Writing", "Public Relations", "Marketing"],
+      "careers": ["Writer", "Journalist", "Marketing Manager", "Public Relations Specialist", "Editor", "Content Strategist"]
+    },
+    {
+      "interest": "Art & Design",
+      "majors": ["Fine Arts", "Graphic Design", "Architecture", "Interior Design", "Film Studies", "Animation"],
+      "careers": ["Graphic Designer", "Architect", "UX Designer", "Animator", "Art Director", "Film Director"]
+    },
+    {
+      "interest": "Helping People",
+      "majors": ["Psychology", "Social Work", "Nursing", "Education", "Counseling", "Public Health"],
+      "careers": ["Psychologist", "Social Worker", "Nurse", "Teacher", "School Counselor", "Public Health Specialist"]
+    },
+    {
+      "interest": "Business & Leadership",
+      "majors": ["Business Administration", "Entrepreneurship", "Management", "International Business", "Supply Chain"],
+      "careers": ["Business Manager", "Entrepreneur", "Consultant", "Product Manager", "Operations Manager", "CEO"]
+    },
+    {
+      "interest": "Music & Performance",
+      "majors": ["Music", "Music Education", "Music Production", "Theater", "Dance", "Performing Arts"],
+      "careers": ["Musician", "Music Teacher", "Sound Engineer", "Actor", "Choreographer", "Arts Administrator"]
+    },
+    {
+      "interest": "Law & Justice",
+      "majors": ["Political Science", "Criminal Justice", "Pre-Law", "Philosophy", "Public Policy"],
+      "careers": ["Lawyer", "Judge", "Paralegal", "Policy Analyst", "FBI Agent", "Mediator"]
+    },
+    {
+      "interest": "Sports & Fitness",
+      "majors": ["Kinesiology", "Sports Management", "Exercise Science", "Physical Therapy", "Nutrition"],
+      "careers": ["Physical Therapist", "Athletic Trainer", "Sports Manager", "Coach", "Nutritionist", "Sports Broadcaster"]
+    },
+    {
+      "interest": "Nature & Outdoors",
+      "majors": ["Environmental Science", "Marine Biology", "Forestry", "Agriculture", "Geology", "Ecology"],
+      "careers": ["Park Ranger", "Marine Biologist", "Environmental Engineer", "Conservationist", "Geologist", "Wildlife Biologist"]
+    },
+    {
+      "interest": "Building & Making Things",
+      "majors": ["Engineering", "Construction Management", "Industrial Design", "Robotics", "Mechanical Engineering"],
+      "careers": ["Mechanical Engineer", "Civil Engineer", "Robotics Engineer", "Construction Manager", "Product Designer", "Electrician"]
+    }
+  ]
+}
