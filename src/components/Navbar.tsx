@@ -10,7 +10,7 @@ const navLinks = [
   { href: '/roadmap', label: 'Roadmap' },
   { href: '/grades', label: 'Grades' },
   { href: '/goals', label: 'Goals' },
-  { href: '/check-in', label: 'Check-In' },
+  { href: '/checkin', label: 'Check-In' },
   { href: '/parent', label: 'Parent Dashboard' },
 ];
 

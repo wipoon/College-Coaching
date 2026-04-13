@@ -71,7 +71,7 @@ export default function ChatPage() {
       const assistantMsg: Message = {
         id: `asst-${Date.now()}`,
         role: 'assistant',
-        content: data.reply ?? data.message ?? "Sorry, I couldn't generate a response. Try again!",
+        content: data.response ?? data.reply ?? data.message ?? "Sorry, I couldn't generate a response. Try again!",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
 

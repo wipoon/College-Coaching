@@ -22,6 +22,7 @@ model User {
   milestones    MilestoneProgress[]
   chatMessages  ChatMessage[]
   weeklyCheckins WeeklyCheckIn[]
+  reportCards   ReportCard[]
 }
 
 model Goal {
@@ -75,4 +76,35 @@ model WeeklyCheckIn {
   createdAt     DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id])
+}
+
+model ReportCard {
+  id         String         @id @default(cuid())
+  userId     String
+  schoolYear String         // e.g., "2025-2026"
+  term       String         // e.g., "Fall", "Spring", "Q1", "Semester 1"
+  grade      Int            // grade level (6-12)
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+
+  user     User           @relation(fields: [userId], references: [id])
+  subjects SubjectGrade[]
+
+  @@unique([userId, schoolYear, term, grade])
+}
+
+model SubjectGrade {
+  id                String   @id @default(cuid())
+  reportCardId      String
+  subject           String   // display name: "Math", "English Language Arts"
+  normalizedSubject String?  // canonical key: "math", "ela" (for trend tracking)
+  gradeType         String   @default("percentage") // percentage | letter | pass_fail
+  rawGrade          String   // exactly what user entered: "92", "B+", "Pass"
+  percentage        Float?   // numeric percentage (null for pass/fail)
+  letterGrade       String?  // computed letter grade (null for pass/fail)
+  includeInAnalysis Boolean  @default(true)
+  notes             String?
+  createdAt         DateTime @default(now())
+
+  reportCard ReportCard @relation(fields: [reportCardId], references: [id], onDelete: Cascade)
 }
