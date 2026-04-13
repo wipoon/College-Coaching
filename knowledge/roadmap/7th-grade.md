@@ -14,75 +14,57 @@ lastUpdated: "2026-04-13"
 ## 🎓 Academics
 
 ### Fall Semester
-- [P1] Take your GPA seriously — aim for 87%+ (B+ equivalent) to build momentum for high school
+- [P1] Maintain 87%+ average (B+ equivalent) across all core subjects — this builds momentum for high school
 - [P1] Start each week by previewing what's due — no more "I forgot" excuses
-- [P1] Focus on writing skills — practice the 5-paragraph essay structure until it feels natural
+- [P1] Focus on writing skills — practice the 5-paragraph essay until you can write one confidently
 - [P2] Talk to your counselor about honors or advanced classes available for 8th grade
 - [P2] Ask teachers for specific feedback on assignments, not just "what did I get?"
+- [P2] Read and annotate texts for key themes and evidence — don't just skim
 - [P3] Set a goal to read 20+ books this year (a mix of assigned and personal choice)
 
 ### Spring Semester
-- [P1] Finish the year with grades at 87%+ (B+ equivalent) — no coasting in the final weeks
+- [P1] Keep grades at 87%+ through the final weeks — no coasting
 - [P1] Request placement in honors or advanced classes for 8th grade if you're ready
-- [P2] Identify subjects where you could challenge yourself with harder material
 - [P2] Practice writing in different formats: persuasive essays, research summaries, personal narratives
-- [P3] Seek out extra credit opportunities — not because you need them, but to stretch yourself
-- [P3] Form a study group with classmates who take school seriously
-
-### Skills to Master
-- [P1] Write a clear 5-paragraph essay with an introduction, body paragraphs, and conclusion
-- [P1] Maintain 87%+ average (B+ equivalent) across all core subjects
-- [P2] Read and annotate a text for key themes and evidence
 - [P2] Self-assess your work before turning it in — check for errors, completeness, and quality
+- [P3] Form a study group with classmates who take school seriously
 
 ## 🏆 Extracurriculars
 
 ### Fall Semester
 - [P1] Deepen your commitment to 1-2 activities from last year — don't just show up, contribute
 - [P2] Take on a small leadership role: help organize an event, mentor a younger student, lead a project
-- [P2] Start a community service project or join an existing one — aim for meaningful impact
+- [P2] Start a community service project or join an existing one — aim for meaningful, measurable impact
 - [P3] If you haven't found your "thing" yet, try 1-2 new activities this semester
 
 ### Spring Semester
-- [P1] Begin thinking about which activities you want to carry into 8th grade and high school
+- [P1] Decide which activities you want to carry into 8th grade and high school — commit to them
 - [P2] Track your involvement — hours, roles, accomplishments (start a simple log)
-- [P2] Plan and execute a community service project with measurable results (items collected, hours served, people helped)
-- [P3] Explore activities outside school: community sports leagues, arts programs, faith-based groups, coding clubs
-
-### Skills to Master
-- [P1] Commit to an activity for a full year without quitting when it gets hard
-- [P1] Balance 2-3 activities with strong academic performance
 - [P2] Take initiative within your group — volunteer for tasks without being asked
-- [P3] Complete a community service project from start to finish
+- [P3] Explore activities outside school: community sports leagues, arts programs, coding clubs
 
 ## 🧠 Skills & Habits
 
 ### Fall Semester
 - [P1] Create your own weekly study schedule — plan study sessions, not just homework time
-- [P1] Manage multiple classes with different due dates using a planner or digital calendar
+- [P1] Use a planner or digital calendar to manage multiple classes with different due dates
 - [P2] Learn the Cornell note-taking method and use it in at least 2 classes
 - [P2] Practice active recall: close your notes and quiz yourself instead of re-reading
-- [P3] Introduce spaced repetition for test prep — review material over multiple days, not just the night before
+- [P3] Start spaced repetition for test prep — review material over multiple days, not just the night before
 
 ### Spring Semester
-- [P1] Refine your study schedule based on what's working and what isn't
-- [P1] Start using a simple to-do list system to track daily and weekly tasks
+- [P1] Refine your study schedule based on what's working — adjust without parent help
+- [P1] Use a to-do list system to track daily and weekly tasks
 - [P2] Practice test-taking strategies: time management, process of elimination, reading questions carefully
-- [P2] Build the habit of reviewing returned tests and assignments — learn from your mistakes
-- [P3] Practice the "eat the frog" technique — do your hardest task first
-
-### Skills to Master
-- [P1] Create and follow a weekly study schedule without parent help
-- [P1] Juggle homework, studying, and activities using a written system
-- [P2] Take Cornell notes independently in any class
-- [P2] Prepare for a test over 3+ days using active recall and spaced repetition
+- [P2] Review returned tests and assignments — learn from your mistakes, not just the grade
+- [P3] Try the "eat the frog" technique — do your hardest task first
 
 ## 🔍 College & Career Exploration
 
 ### What to Do This Year
 - [P1] Learn the different types of colleges: community college, state university, private college, trade/vocational school
 - [P1] Explore what "college readiness" means and what high school classes matter most
-- [P2] Research 3 careers that interest you — what education do they require? What's a typical day like?
+- [P2] Research 3 careers that interest you — what education do they require? What's a typical day like? Write a short paragraph about each
 - [P2] Talk to 2-3 adults about their career paths — how did they get where they are?
 - [P3] Attend your school's college or career day if offered — ask questions!
 - [P3] Start a "What Interests Me" journal — write down subjects, activities, and topics that excite you
@@ -91,38 +73,28 @@ lastUpdated: "2026-04-13"
 - [P3] "What surprised you most about college?"
 - [P3] "If you could go back, what would you study differently?"
 - [P3] "What skills from middle school actually helped you later in life?"
-- [P3] "Can you tell me about a career that uses both [subject A] and [subject B]?"
 
 ## 💪 Personal Growth
 
 ### Fall Semester
 - [P1] Take ownership of your daily routine — wake up, get ready, and manage your time independently
-- [P1] Set 2-3 goals for the semester using the SMART framework (Specific, Measurable, Achievable, Relevant, Time-bound)
+- [P1] Set 2-3 SMART goals for the semester and track progress on them throughout the term
 - [P2] Practice public speaking — volunteer to present in class, speak up in group discussions
 - [P3] Learn healthy conflict resolution: listen first, express your perspective calmly, find compromise
 
 ### Spring Semester
 - [P1] Build resilience: when something goes wrong, ask "what can I learn?" before "why me?"
-- [P2] Practice writing emails to teachers or other adults — learn proper greeting, body, and sign-off
+- [P2] Practice writing proper emails to teachers — learn greeting, body, and sign-off format
 - [P2] Reflect on your strengths and areas for growth — write them down honestly
 - [P3] Start learning financial literacy basics: what things cost, how saving works, needs vs. wants
-- [P3] Seek feedback from trusted adults and actually apply it
-
-### Skills to Master
-- [P1] Create and track progress on a SMART goal independently
-- [P2] Send a properly formatted email to a teacher
-- [P2] Deliver a 2-3 minute presentation in front of a class without reading from notes
-- [P3] Resolve a disagreement with a friend or classmate maturely
 
 ## ☀️ Summer Checklist
 - [P1] Read 5+ books (mix of fiction, nonfiction, and at least one challenging read)
 - [P1] Set academic and personal goals for 8th grade
 - [P2] Job shadow someone or volunteer regularly (10+ hours)
-- [P2] Research 3 careers and write a short paragraph about each
 - [P2] Practice a skill daily for at least 2 weeks (instrument, language, coding, sport)
 - [P3] Attend a summer enrichment program, camp, or class in an area of interest
 - [P3] Start a passion project: a blog, art portfolio, coding project, garden, or small business
-- [P3] Have a "career conversation" with 2 adults you admire
 
 ## ⚠️ Red Flags to Watch
 - GPA dropping below a B average without a plan to improve
