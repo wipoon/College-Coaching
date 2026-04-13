@@ -113,6 +113,7 @@ export interface RoadmapMilestone {
   pillar: string;
   grade: number;
   semester?: string;
+  priority: number; // 1 = must do, 2 = should do, 3 = nice to do
 }
 
 export function parseRoadmapMilestones(grade: number): RoadmapMilestone[] {
@@ -146,9 +147,17 @@ export function parseRoadmapMilestones(grade: number): RoadmapMilestone[] {
     }
 
     // Detect action items (bullet points or numbered lists)
-    const itemMatch = line.match(/^[-*]\s+(.+)$/) || line.match(/^\d+\.\s+(.+)$/);
+    // The optional (?:\[ \]\s*)? handles old checkbox syntax but must NOT consume [P1]/[P2]/[P3] tags
+    const itemMatch = line.match(/^[-*]\s+(?:\[ \]\s*)?(.+)$/) || line.match(/^\d+\.\s+(.+)$/);
     if (itemMatch && currentPillar) {
-      const title = itemMatch[1].trim();
+      let title = itemMatch[1].trim();
+      // Extract priority tag [P1], [P2], [P3] — default to P2 if not tagged
+      let priority = 2;
+      const priorityMatch = title.match(/^\[P([123])\]\s*/);
+      if (priorityMatch) {
+        priority = parseInt(priorityMatch[1], 10);
+        title = title.replace(/^\[P[123]\]\s*/, '');
+      }
       const key = `g${grade}-${currentPillar.toLowerCase()}-${title
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, "-")
@@ -159,6 +168,7 @@ export function parseRoadmapMilestones(grade: number): RoadmapMilestone[] {
         pillar: currentPillar,
         grade,
         semester: currentSemester || undefined,
+        priority,
       });
     }
   }

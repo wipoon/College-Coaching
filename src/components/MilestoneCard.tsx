@@ -3,6 +3,7 @@
 export interface MilestoneCardProps {
   title: string;
   pillar: string;
+  priority: number;
   isComplete: boolean;
   onToggle: () => void;
 }
@@ -11,21 +12,35 @@ const pillarIcons: Record<string, string> = {
   Academics: '🎓',
   Extracurriculars: '🏆',
   Skills: '🧠',
-  'College Prep': '🔍',
-  Growth: '💪',
+  CollegePrep: '🔍',
+  PersonalGrowth: '💪',
 };
 
 const pillarColors: Record<string, string> = {
   Academics: 'bg-blue-100 text-blue-700',
   Extracurriculars: 'bg-green-100 text-green-700',
   Skills: 'bg-purple-100 text-purple-700',
-  'College Prep': 'bg-amber-100 text-amber-700',
-  Growth: 'bg-rose-100 text-rose-700',
+  CollegePrep: 'bg-amber-100 text-amber-700',
+  PersonalGrowth: 'bg-rose-100 text-rose-700',
 };
 
-export default function MilestoneCard({ title, pillar, isComplete, onToggle }: MilestoneCardProps) {
+const priorityBadges: Record<number, string> = {
+  1: 'bg-red-100 text-red-700',
+  2: 'bg-yellow-100 text-yellow-700',
+  3: 'bg-green-100 text-green-700',
+};
+
+const priorityLabels: Record<number, string> = {
+  1: 'P1',
+  2: 'P2',
+  3: 'P3',
+};
+
+export default function MilestoneCard({ title, pillar, priority, isComplete, onToggle }: MilestoneCardProps) {
   const icon = pillarIcons[pillar] ?? '📌';
   const badgeColor = pillarColors[pillar] ?? 'bg-slate-100 text-slate-600';
+  const pBadgeColor = priorityBadges[priority] ?? 'bg-slate-100 text-slate-600';
+  const pLabel = priorityLabels[priority] ?? 'P2';
 
   return (
     <button
@@ -55,6 +70,11 @@ export default function MilestoneCard({ title, pillar, isComplete, onToggle }: M
         }`}
       >
         {title}
+      </span>
+
+      {/* Priority badge */}
+      <span className={`shrink-0 text-[10px] font-bold px-1.5 py-0.5 rounded ${pBadgeColor}`}>
+        {pLabel}
       </span>
 
       {/* Pillar badge */}

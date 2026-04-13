@@ -6,8 +6,10 @@ import { GRADE_THEMES } from '@/types';
 
 interface Milestone {
   milestoneKey: string;
+  key: string;
   title: string;
   pillar: string;
+  priority: number;
   isComplete: boolean;
 }
 
@@ -17,10 +19,16 @@ const PILLAR_FILTERS = [
   { key: 'all', label: '🎓 All' },
   { key: 'Academics', label: '🎓 Academics' },
   { key: 'Extracurriculars', label: '🏆 Extracurriculars' },
-  { key: 'Skills', label: '🧠 Skills' },
-  { key: 'College Prep', label: '🔍 College Prep' },
-  { key: 'Growth', label: '💪 Growth' },
+  { key: 'Skills', label: '🧠 Skills & Habits' },
+  { key: 'CollegePrep', label: '🔍 College & Career' },
+  { key: 'PersonalGrowth', label: '💪 Personal Growth' },
 ];
+
+const PRIORITY_INFO: Record<number, { label: string; emoji: string; description: string; color: string }> = {
+  1: { label: 'Priority 1', emoji: '🔴', description: 'Must Do — Essential for college readiness', color: 'border-red-300 bg-red-50' },
+  2: { label: 'Priority 2', emoji: '🟡', description: 'Should Do — Important for standing out', color: 'border-yellow-300 bg-yellow-50' },
+  3: { label: 'Priority 3', emoji: '🟢', description: 'Nice to Do — Bonus growth opportunities', color: 'border-green-300 bg-green-50' },
+};
 
 export default function RoadmapPage() {
   const [selectedGrade, setSelectedGrade] = useState(7);
@@ -38,7 +46,9 @@ export default function RoadmapPage() {
       );
       if (!res.ok) throw new Error('Failed to load milestones');
       const data = await res.json();
-      setMilestones(data.milestones ?? data ?? []);
+      const list = data.milestones ?? data ?? [];
+      // Normalize: use 'key' or 'milestoneKey'
+      setMilestones(list.map((m: Milestone) => ({ ...m, milestoneKey: m.milestoneKey || m.key })));
     } catch {
       setError('Could not load milestones. Please try again.');
       setMilestones([]);
@@ -52,7 +62,6 @@ export default function RoadmapPage() {
   }, [selectedGrade, fetchMilestones]);
 
   const handleToggle = async (milestoneKey: string, currentComplete: boolean) => {
-    // Optimistic update
     setMilestones((prev) =>
       prev.map((m) =>
         m.milestoneKey === milestoneKey
@@ -61,6 +70,7 @@ export default function RoadmapPage() {
       )
     );
 
+    const target = milestones.find((m) => m.milestoneKey === milestoneKey);
     try {
       await fetch('/api/milestones', {
         method: 'POST',
@@ -69,11 +79,12 @@ export default function RoadmapPage() {
           userId: 'default-student',
           grade: selectedGrade,
           milestoneKey,
+          pillar: target?.pillar ?? '',
+          title: target?.title ?? '',
           isComplete: !currentComplete,
         }),
       });
     } catch {
-      // Revert on failure
       setMilestones((prev) =>
         prev.map((m) =>
           m.milestoneKey === milestoneKey
@@ -84,15 +95,27 @@ export default function RoadmapPage() {
     }
   };
 
+  // Apply pillar filter
   const filtered =
     pillarFilter === 'all'
       ? milestones
       : milestones.filter((m) => m.pillar === pillarFilter);
 
+  // Group by priority
+  const byPriority = [1, 2, 3].map((p) => ({
+    priority: p,
+    ...PRIORITY_INFO[p],
+    items: filtered.filter((m) => m.priority === p),
+  })).filter((g) => g.items.length > 0);
+
   const completedCount = milestones.filter((m) => m.isComplete).length;
   const total = milestones.length;
   const pct = total > 0 ? Math.round((completedCount / total) * 100) : 0;
   const gradeInfo = GRADE_THEMES[selectedGrade];
+
+  // Priority-specific progress
+  const p1Total = milestones.filter((m) => m.priority === 1).length;
+  const p1Done = milestones.filter((m) => m.priority === 1 && m.isComplete).length;
 
   return (
     <div className="space-y-6">
@@ -135,10 +158,10 @@ export default function RoadmapPage() {
         </div>
       )}
 
-      {/* Progress bar */}
-      <div className="bg-white rounded-xl border border-slate-200 p-4">
-        <div className="flex items-center justify-between text-sm mb-2">
-          <span className="font-medium text-slate-700">Progress</span>
+      {/* Progress bars */}
+      <div className="bg-white rounded-xl border border-slate-200 p-4 space-y-3">
+        <div className="flex items-center justify-between text-sm mb-1">
+          <span className="font-medium text-slate-700">Overall Progress</span>
           <span className="text-slate-500">
             {completedCount}/{total} milestones ({pct}%)
           </span>
@@ -149,6 +172,22 @@ export default function RoadmapPage() {
             style={{ width: `${pct}%` }}
           />
         </div>
+        {p1Total > 0 && (
+          <div>
+            <div className="flex items-center justify-between text-xs mb-1">
+              <span className="font-medium text-red-600">🔴 Must-Do Progress</span>
+              <span className="text-slate-500">
+                {p1Done}/{p1Total} ({p1Total > 0 ? Math.round((p1Done / p1Total) * 100) : 0}%)
+              </span>
+            </div>
+            <div className="w-full h-2 bg-red-100 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-red-500 rounded-full transition-all duration-500"
+                style={{ width: `${p1Total > 0 ? Math.round((p1Done / p1Total) * 100) : 0}%` }}
+              />
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Pillar filters */}
@@ -168,7 +207,14 @@ export default function RoadmapPage() {
         ))}
       </div>
 
-      {/* Milestones */}
+      {/* Priority legend */}
+      <div className="flex flex-wrap gap-3 text-xs text-slate-500">
+        <span>🔴 <strong>P1</strong> Must Do</span>
+        <span>🟡 <strong>P2</strong> Should Do</span>
+        <span>🟢 <strong>P3</strong> Nice to Do</span>
+      </div>
+
+      {/* Milestones grouped by priority */}
       {loading ? (
         <div className="text-center py-12 text-slate-400">Loading milestones…</div>
       ) : error ? (
@@ -186,15 +232,35 @@ export default function RoadmapPage() {
           No milestones found for this filter.
         </div>
       ) : (
-        <div className="space-y-2">
-          {filtered.map((m) => (
-            <MilestoneCard
-              key={m.milestoneKey}
-              title={m.title}
-              pillar={m.pillar}
-              isComplete={m.isComplete}
-              onToggle={() => handleToggle(m.milestoneKey, m.isComplete)}
-            />
+        <div className="space-y-6">
+          {byPriority.map((group) => (
+            <div key={group.priority}>
+              {/* Priority group header */}
+              <div className={`rounded-xl border p-3 mb-3 ${group.color}`}>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="font-semibold text-slate-800">
+                      {group.emoji} {group.label} — {group.description}
+                    </h3>
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">
+                    {group.items.filter((m) => m.isComplete).length}/{group.items.length} done
+                  </span>
+                </div>
+              </div>
+              <div className="space-y-2">
+                {group.items.map((m) => (
+                  <MilestoneCard
+                    key={m.milestoneKey}
+                    title={m.title}
+                    pillar={m.pillar}
+                    priority={m.priority}
+                    isComplete={m.isComplete}
+                    onToggle={() => handleToggle(m.milestoneKey, m.isComplete)}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       )}
