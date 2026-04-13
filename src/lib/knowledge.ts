@@ -124,15 +124,17 @@ export function parseRoadmapMilestones(grade: number): RoadmapMilestone[] {
   let currentPillar = "";
   let currentSemester = "";
 
-  for (const line of article.content.split("\n")) {
+  for (const rawLine of article.content.split("\n")) {
+    const line = rawLine.replace(/\r$/, "");
     // Detect pillar headers (## 🎓 Academics, etc.)
-    const pillarMatch = line.match(/^##\s+.?\s*(Academics|Extracurriculars|Skills|College.*Prep|Personal.*Growth)/i);
+    const pillarMatch = line.match(/^##\s+.*?(Academics|Extracurriculars|Skills|College.*(?:Prep|Exploration)|Personal.*Growth)/i);
     if (pillarMatch) {
       const matched = pillarMatch[1].toLowerCase();
       currentPillar =
         pillars.find((p) => matched.includes(p.toLowerCase())) ||
         (matched.includes("college") ? "CollegePrep" : 
-         matched.includes("personal") ? "PersonalGrowth" : matched);
+         matched.includes("personal") ? "PersonalGrowth" : 
+         matched.includes("skills") ? "Skills" : matched);
       continue;
     }
 
